@@ -87,11 +87,40 @@ docker compose exec app npm run lint:fix
 docker compose exec app npm run format
 
 # Migrações do banco
+docker compose exec app npx sequelize-cli migration:generate --name migration-name
 docker compose exec app npx sequelize-cli db:migrate
+docker compose exec app npx sequelize-cli db:migrate:undo
+docker compose exec app npx sequelize-cli db:migrate:undo:all
+
+# Seeds
+docker compose exec app npx sequelize-cli seed:generate --name demo-user
 docker compose exec app npx sequelize-cli db:seed:all
+docker compose exec app npx sequelize-cli db:seed:undo
+docker compose exec app npx sequelize-cli db:seed:undo --seed name-of-seed-as-in-data
+docker compose exec app npx sequelize-cli db:seed:undo:all
+
+# FK específica
+docker compose exec app npx sequelize-cli migration:generate --name add-fk
+
+# Verificar status da migrate
+docker compose exec app npx sequelize-cli db:migrate:status
 
 # Acessar terminal do container
 docker compose exec app sh
+```
+# 🎯 Comandos de Status Úteis:
+```bash
+# Status geral das migrations
+docker compose exec app npx sequelize-cli db:migrate:status
+
+# Ver versão do Sequelize CLI
+docker compose exec app npx sequelize-cli --version
+
+# Ajuda com todos os comandos
+docker compose exec app npx sequelize-cli --help
+
+# Ajuda específica de migrations
+docker compose exec app npx sequelize-cli db:migrate --help
 ```
 
 # 💻 Desenvolvimento Local (sem Docker)
