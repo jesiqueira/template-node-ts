@@ -13,9 +13,9 @@ services:
       database:
         condition: service_healthy
     env_file:
-      - .env
+      - .env  # ← CARREGA .env
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=${NODE_ENV:-development}
     command: npm run dev
     stdin_open: true
     tty: true
@@ -46,8 +46,8 @@ services:
     image: dpage/pgadmin4
     container_name: pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL:-admin@app.com}  # ← OPICIONAL
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD:-admin123}  # ← OPICIONAL
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL:-admin@app.com}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD:-admin123}
     ports:
       - "8080:80"
     depends_on:
