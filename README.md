@@ -175,28 +175,27 @@ DB_STORAGE=:memory:
 
 # 🏗️ Estrutura do Projeto
 ```text
-template-node-ts/
-├── 🐳 docker-compose.yml          # Orquestração de containers
-├── 🐳 Dockerfile                  # Build da aplicação
-├── 📦 package.json                # Dependências e scripts
-├── ⚙️ tsconfig.json               # Configuração TypeScript
-├── ⚙️ jest.config.js              # Configuração Jest
-├── ⚙️ .eslintrc.js                # Configuração ESLint
-├── ⚙️ .prettierrc                 # Configuração Prettier
-├── ⚙️ .sequelizerc                # Configuração Sequelize
-├── 📄 .env.example                # Variáveis de ambiente (template)
-├── 📄 .env.test                   # Configuração de testes
-├── 📁 src/
-│   ├── 🚀 server.ts               # Ponto de entrada da aplicação
-│   ├── 📋 app.ts                  # Configuração do Express + Rotas
-│   ├── 🗄️ database/
-│   │   ├── connection.ts          # Conexão Sequelize
-│   │   ├── config.ts              # Configuração multi-ambiente
-│   │   └── models/                # Modelos do banco
-│   ├── 🧪 __tests__/
-│   │   └── app.test.ts            # Testes da aplicação
-│   └── 📁 (controllers|routes|services)/  # Estrutura MVC
-└── 📁 (migrations|seeders)/       # Migrações do Sequelize
+TEMPLATE-MODE-TS/
+    ├── 📁 src/
+    │   ├── 🗄️ database/           # Tudo do Sequelize aqui
+    │   │   ├── config/
+    │   │   ├── models/
+    │   │   ├── migrations/        # Migrações dentro de database
+    │   │   ├── seeders/           # Seeders dentro de database  
+    │   │   └── connection.ts
+    │   ├── 🎮 controllers/
+    │   ├── 🛣️ routes/
+    │   ├── ⚙️ services/
+    │   ├── 🔧 middleware/
+    │   ├── app.ts
+    │   ├── server.ts
+    │   ├── 🧪 __tests__/
+    ├── 📄 .dockerignore          # Ignora node_modules
+    ├── 📄 .gitignore            # Ignora node_modules
+    ├── 🐳 docker-compose.yml
+    ├── 🐳 Dockerfile
+    ├── ⚙️ package.json
+    └── ⚙️ tsconfig.json
 ```
 # 🔧 Configuração
 ## ⚙️ Variáveis de Ambiente
