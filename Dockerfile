@@ -17,11 +17,11 @@ RUN npm install
 
 # 3️⃣ DEPOIS: Copia APENAS código fonte e configurações
 COPY src/ ./src/
+COPY __tests__/ ./__tests__/
 COPY .env.example ./
-COPY .env.test ./
 
 # 4️⃣ Cria pastas necessárias (já estão no src/ mas por segurança)
-RUN mkdir -p src/__tests__ src/database/migrations src/database/seeders src/database/models
+RUN mkdir -p src/database/migrations src/database/seeders src/database/models
 
 EXPOSE 3000
 

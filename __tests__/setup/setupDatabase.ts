@@ -1,8 +1,8 @@
 /**
- * src/tests/setupDatabase.ts
+ * __tests__/setup/setupDatabase.ts
  * Setup do banco de dados para testes - AQUI sim pode usar funções do Jest
  */
-import { sequelize } from '../database/connection'
+import { sequelize } from '../../src/database/connection'
 
 // Verifica se estamos no ambiente de teste
 if (process.env.NODE_ENV !== 'test') {
